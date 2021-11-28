@@ -1,0 +1,65 @@
+:root {
+  --clr-primary: #2045ec;
+  --clr-primary-variant: #18BAEA;
+  --clr-secondary: #FF1274;
+  --clr-secondary-variant: #FF37C1;
+
+  --clr-text-light: #FFFFFF;
+  --clr-text-dark: #222;
+
+  --clr-neutral-light: #A8B1B5;
+  --clr-neutral-dark: #596972;
+
+  --clr-error: #ff0101;
+  --clr-warning: #E4CC37;
+  --clr-sucess: #8FC93A;
+
+  --clr-bg-light: #F2F2F3;
+  --clr-bg-dark: #1F292E;
+
+  --clr-surface-light: #FAFAFB;
+  --clr-surface-dark: #2C3940;
+
+  --clr-light-shadow: rgba(0,0,0, 0.3);
+}
+
+/* some default color values */
+body {
+  color: var(--clr-text-dark);
+}
+
+/* === theme color classes === */
+.cp_bg-light {
+  background-color: var(--clr-bg-light);
+}
+.cp_surface-light, .cp_bg-light .cp_surface {
+  background-color: var(--clr-surface-light);
+}
+.cp_bg-light, .cp_surface-light {
+  --clr-text: var(--clr-text-dark);
+  --clr-neutral: var(--clr-neutral-dark);
+}
+
+.cp_bg-dark {
+  background-color: var(--clr-bg-dark);
+}
+.cp_surface-dark, .cp_bg-dark .cp_surface {
+  background-color: var(--clr-surface-dark);
+}
+.cp_bg-dark, .cp_surface-dark {
+  --clr-text: var(--clr-text-light);
+  --clr-neutral: var(--clr-neutral-light);
+}
+
+/* text color */
+.cp_text { color: var(--clr-text); }
+.cp_neutral { color: var(--clr-neutral); }
+
+/* border color */
+.cp_border-text { border-color: var(--clr-text); }
+.cp_border-neutral { border-color: var(--clr-neutral); }
+
+/* shadow */
+.cp_light-shadow {
+  box-shadow: 0 2px 4px var(--clr-light-shadow);
+}

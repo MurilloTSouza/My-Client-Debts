@@ -1,0 +1,26 @@
+.Button {
+    font-size: 1.2rem;
+    padding: 0.6em 1.2em;
+
+    outline: none;
+    border: none;
+    border-radius: 1.2em;
+    transition: 0.5s; /* background, box-shadow */
+}
+.Button:not(:disabled) {
+    background-color: var(--clr-primary);
+    color: var(--clr-text-light);
+}
+.Button:disabled {
+    background-color: var(--clr-neutral-light);
+    color: var(--clr-text-light);
+
+    cursor: default;
+    pointer-events: none;
+}
+
+.Button:not(:disabled):hover,
+.Button:not(:disabled):focus {
+    background-color: var(--clr-primary-variant);
+    box-shadow: 0 2px 4px var(--clr-light-shadow);
+}

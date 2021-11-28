@@ -1,0 +1,84 @@
+/* local variables */
+.Input {
+    --label-font-size: 1rem;
+
+    --input-font-size: 1.2rem;
+    --input-top-pad: 4px;
+
+    --message-font-size: 0.8rem;
+}
+
+.Input {
+    position: relative; /* used to set label absolute position */
+    
+    /* make space for label on top */
+    padding: var(--label-font-size) 0 0;
+}
+
+.Input input {
+    background-color: transparent;
+    width: 100%;
+    font-size: var(--input-font-size);
+
+    padding: var(--input-top-pad) 0; /* top space for label */
+
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    outline: none;
+
+    text-overflow: ellipsis;
+}
+
+/* starts with label on bottom as default */
+.Input label {
+    position: absolute;
+    display: block; /* make it stay in the left (?) */
+
+    /* push down label to the same local as input */
+    top: calc(var(--label-font-size) + var(--input-top-pad)); 
+
+    /* at the bottom, label size has the same size as input */
+    font-size: var(--input-font-size); 
+    
+    transition: 0.2s; /* color and position */
+}
+
+.Input span{
+    height: 1em; /* keep height even if empty */
+    display: block;
+    text-align: end;
+
+    font-size: var(--message-font-size);
+}
+
+/* === ON FOCUS CHANGES === */
+/* input border bottom thicker when on focus */
+.Input input:focus {
+    border-bottom-width: 2px;
+}
+/* only change border to primary color on focus if is valid */
+.Input:not(.invalid) input:focus {
+    border-image: linear-gradient(to right, var(--clr-primary), var(--clr-primary-variant));
+    border-image-slice: 1;
+}
+/* set label color when on focus */
+.Input input:focus + label {
+    color: var(--clr-primary)
+}
+/* push label up when input not empty or on focus */
+.Input input:not(:placeholder-shown) + label,
+.Input input:focus + label {  
+    top: 0;
+    font-size: var(--label-font-size); /* label size on top is smaller */ 
+}
+
+/* === INVALID INPUT CHANGES === */
+.Input.invalid input {
+    border-color: var(--clr-error);
+}
+.Input.invalid input:focus + label {
+    color: var(--clr-error);
+}
+.Input.invalid span {
+    color: var(--clr-error);
+}

@@ -1,0 +1,23 @@
+:root {
+  --desktop-min-width: 768px;
+}
+
+.g_container {
+  width: 90%;
+  margin-inline: auto;
+}
+
+.g_hidden {
+  visibility: hidden;
+}
+
+.g_full-block {
+  display: block;
+  width: 100%;
+}
+
+img.g_fit-cover {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
